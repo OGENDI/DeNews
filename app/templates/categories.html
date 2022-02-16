@@ -11,7 +11,7 @@
     {% for category in category %}
 
     <div class="card m-2">
-      <img class="card" src="{{category.article_image}}" alt="Card image cap" size="100px180">
+      <img class="card" src="{{category.image}}" alt="Card image cap" size="100px180">
       <div class="card-body">
         <h5 class="card-title">{{category.author}}</h5>
         <p class="card-text">{{category.description}}</p>
@@ -20,7 +20,7 @@
         </a>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Publish date:{{category.time_published | strftime }}</small>
+        <small class="text-muted">Publish date:{{category.time }}</small>
       </div>
     </div>
     {% endfor %}
