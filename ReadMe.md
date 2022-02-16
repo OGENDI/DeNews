@@ -1,7 +1,7 @@
-# DeNews -FLASK APP
+# DeNews FLASK APP
 ## Author
 
-~ Derick Mokonge
+Derick Mokonge
 ## Description
 
 A Flask framwork { python } application that keeps up a user with current affairs incase one misses news .It provides various news from techonology, politics, businness, sports among manny others. Also it provides various sources of news from all over the world that one can choose and read from.This is achiaved by use of [News API](https://newsapi.org/)
