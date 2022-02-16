@@ -16,8 +16,8 @@ def get_source(news):
         sources_data = url.read()
         sources_response = json.loads(sources_data)
         sources_result = None
-        if sources_response['sources']:
-            sources_list = sources_response['sources']
+        if sources_response['articles']:
+            sources_list = sources_response['articles']
             sources_result = process_sources_result(sources_list)
     return sources_result
 
@@ -50,16 +50,17 @@ def get_articles(id):
 def process_articles_result(list_article):
     article_result = []
     for item in list_article:
-        id = item.get('article_id')
+        id = item.get('id')
         image = item.get('urlToImage')
         title = item.get('title')
         author = item.get('author')
         description = item.get('description')
         time = item.get('publishedAt')
         url = item.get('url')
-        if id:
+        if image:
             article_object = Article(id, image, title, author, description, time, url)
             article_result.append(article_object)
+    print(article_result)
     return article_result
 
 def get_headlines():
@@ -68,7 +69,7 @@ def get_headlines():
     '''
     get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(
         api_key)
-    print(get_headlines_url)
+    # print(get_headlines_url)
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
         headlines_response = json.loads(get_headlines_data)
@@ -78,7 +79,7 @@ def get_headlines():
         if headlines_response['articles']:
             get_headlines_list = headlines_response['articles']
             headlines_results = process_articles_result(get_headlines_list)
-
+    print(headlines_results)
     return headlines_results
 
 def article_source(article_id):
